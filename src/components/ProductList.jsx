@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
+const BASE = import.meta.env.BASE_URL;
+
 const products = [
-  { id: 1, name: 'BPC-157', price: 'R$199,90', category: 'Regeneração', img: '/BPC-157.png', tag: 'Mais vendido' },
-  { id: 2, name: 'KLOW', price: 'R$199,90', category: 'Otimização', img: '/KLOW.png', tag: 'New' },
-  { id: 3, name: 'MOTS-c', price: 'R$199,90', category: 'Energia', img: '/MOTS-c.png', tag: 'Limited' },
-  { id: 4, name: 'GHK-Cu', price: 'R$199,90', category: 'Estética', img: '/GHK-Cu.png', tag: 'Limited' },
+  { id: 1, name: 'BPC-157', price: 'R$199,90', category: 'Regeneração', img: `${BASE}BPC-157.png`, tag: 'Mais vendido' },
+  { id: 2, name: 'KLOW', price: 'R$199,90', category: 'Otimização', img: `${BASE}KLOW.png`, tag: 'New' },
+  { id: 3, name: 'MOTS-c', price: 'R$199,90', category: 'Energia', img: `${BASE}MOTS-c.png`, tag: 'Limited' },
+  { id: 4, name: 'GHK-Cu', price: 'R$199,90', category: 'Estética', img: `${BASE}GHK-Cu.png`, tag: 'Limited' },
 ];
 
 const ProductCard = ({ product }) => {

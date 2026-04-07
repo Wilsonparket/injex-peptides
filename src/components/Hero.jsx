@@ -3,6 +3,8 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const BASE = import.meta.env.BASE_URL;
+
 const slides = [
   {
     id: 1,
@@ -11,7 +13,7 @@ const slides = [
     titleNeon: 'menos gordura',
     titlePost: '',
     description: 'Ative seu corpo para queimar gordura com Tesamorelina',
-    image: '/03.png',
+    image: `${BASE}03.png`,
     bg: 'linear-gradient(135deg, #0a0a0a 0%, #1a2410 100%)',
   },
   {
@@ -21,7 +23,7 @@ const slides = [
     titleNeon: 'emagrecimento',
     titlePost: '',
     description: 'Inovação que esculpe resultados',
-    image: '/02.png',
+    image: `${BASE}02.png`,
     bg: 'linear-gradient(135deg, #0a0a0a 0%, #102418 100%)',
   },
   {
@@ -31,7 +33,7 @@ const slides = [
     titleNeon: 'forte!',
     titlePost: '',
     description: 'Seu corpo em evolução',
-    image: '/01.png',
+    image: `${BASE}01.png`,
     bg: 'linear-gradient(135deg, #0a0a0a 0%, #241810 100%)',
   },
 ];
