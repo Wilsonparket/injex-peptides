@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;600;800;900&family=Archivo+Black&display=swap');
+
+:root {
+  --neon: #96e348;
+  --bg: #000000;
+  --surface: #111111;
+  --surface-light: #1a1a1a;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --container-width: 1200px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon);
+}
+
+/* Utilities */
+.text-neon { color: var(--neon); }
+.bg-neon { background-color: var(--neon); }
+.glow-neon { box-shadow: 0 0 20px rgba(150, 227, 72, 0.3); }
+
+.btn-primary {
+  background-color: var(--neon);
+  color: var(--bg);
+  padding: 1rem 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  transform: translateX(5px) scale(1.02);
+  box-shadow: 0 0 30px rgba(150, 227, 72, 0.5);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.9;
+  margin-bottom: 2rem;
+}
+
+.neon-border {
+  border: 1px solid var(--neon);
+}
+
+.neon-glow-text {
+  text-shadow: 0 0 10px rgba(150, 227, 72, 0.5);
+}

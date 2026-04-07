@@ -1,0 +1,92 @@
+import React from 'react';
+import { Zap, Dna, Truck, ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const Stats = () => {
+  return (
+    <section id="sobre-nos" style={{ padding: '100px 0 60px', backgroundColor: '#050505', scrollMarginTop: '100px' }}>
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <h2 className="section-title" style={{ fontSize: '200%' }}>Peptídeos para pesquisa e <span className="text-neon">desenvolvimento científico</span></h2>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
+            Na INJEX, estamos redefinindo o futuro dos peptídeos. Como uma organização orientada pela ciência, nossa missão é desbloquear o potencial da tecnologia avançada de peptídeos e transformá-la em soluções práticas. Fundamentados em pesquisa rigorosa e impulsionados pela inovação, preenchemos a lacuna entre a biotecnologia de ponta e as aplicações práticas.
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '1.5rem'
+        }}>
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            padding: '2rem',
+            borderLeft: '4px solid var(--neon)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Dna size={32} className="text-neon" />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Nossa empresa:</span>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>A mais alta qualidade em <span className="text-neon">Peptídeos</span></div>
+            </div>
+          </div>
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            padding: '2rem',
+            borderLeft: '4px solid var(--neon)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Truck size={32} className="text-neon" />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Entrega</span>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Entrega rápida para todo o <span className="text-neon">Brasil</span></div>
+            </div>
+          </div>
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            padding: '2rem',
+            borderLeft: '4px solid var(--neon)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Zap size={32} className="text-neon" />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Padrão Premium</span>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Matéria-prima de <span className="text-neon">alta pureza</span></div>
+            </div>
+          </div>
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            padding: '2rem',
+            borderLeft: '4px solid var(--neon)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <ShieldCheck size={32} className="text-neon" />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Segurança Garantida</span>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Processos rigorosos de <span className="text-neon">qualidade</span></div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  );
+};
+
+export default Stats;
