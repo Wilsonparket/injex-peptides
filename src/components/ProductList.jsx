@@ -18,20 +18,20 @@ const ProductCard = ({ product }) => {
   const { addItem } = useCart();
   const [zoom, setZoom] = useState(false);
   const goToCheckout = () => { addItem(product); navigate('/purchase'); };
-  const addToCart = (e) => { e.stopPropagation(); addItem(product); };
+  const addToCart = (e) => { e.stopPropagation(); addItem(product); navigate('/purchase'); };
   const openZoom = (e) => { e.stopPropagation(); setZoom(true); };
   const closeZoom = (e) => { e.stopPropagation(); setZoom(false); };
   return (
   <React.Fragment>
   <motion.div
     whileHover={{ y: -10 }}
-    onClick={goToCheckout}
+    onClick={() => setZoom(true)}
     style={{
       backgroundColor: 'var(--surface)',
       position: 'relative',
       padding: '1.5rem',
       overflow: 'hidden',
-      cursor: 'pointer'
+      cursor: 'zoom-in'
     }}
   >
     <div style={{

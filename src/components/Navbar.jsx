@@ -23,27 +23,64 @@ const Navbar = () => {
         alignItems: 'center'
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src={`${import.meta.env.BASE_URL}LOGO.png`} alt="INJEX" style={{ height: '40px', width: 'auto', display: 'block' }} />
+          <span style={{ 
+            fontFamily: "'Archivo Black', sans-serif", 
+            fontSize: '1.5rem', 
+            fontWeight: 900, 
+            letterSpacing: '-0.02em',
+            display: 'flex',
+            alignItems: 'baseline'
+          }}>
+            <span style={{ color: '#fff' }}>INJ</span>
+            <span style={{ color: 'var(--neon)' }}>EX</span>
+            <span style={{ fontSize: '0.6rem', color: 'var(--neon)', marginLeft: '2px', alignSelf: 'flex-start', marginTop: '4px' }}>™</span>
+          </span>
         </Link>
 
-        <ul style={{
-          display: 'flex',
-          gap: '2rem',
-          fontWeight: 600,
-          fontSize: '0.875rem'
-        }}>
-          <li><a href="#peptideos" className="text-neon">Peptídios</a></li>
-          <li><a href="#">Peptídios Populares</a></li>
-          <li><a href="#sobre-nos">Sobre nós</a></li>
-          <li><Link to="/pagamento-e-entrega">Pagamento e entrega</Link></li>
-          <li><Link to="/fale-conosco">Fale conosco</Link></li>
-        </ul>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+          <ul style={{
+            display: 'flex',
+            gap: '1.5rem',
+            fontWeight: 700,
+            fontSize: '0.75rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}>
+            <li><a href="#injetaveis" style={{ color: '#fff', textDecoration: 'none' }}>Injetáveis</a></li>
+            <li><a href="#peptideos" style={{ color: '#fff', textDecoration: 'none' }}>Peptídeos</a></li>
+            <li><a href="#sobre" style={{ color: '#fff', textDecoration: 'none' }}>Sobre</a></li>
+            <li><a href="#contato" style={{ color: '#fff', textDecoration: 'none' }}>Contato</a></li>
+          </ul>
 
-        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-          <Search size={20} cursor="pointer" />
-          <User size={20} cursor="pointer" />
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            backgroundColor: '#111', 
+            borderRadius: '8px', 
+            padding: '0.4rem 0.8rem',
+            width: '240px',
+            border: '1px solid #222'
+          }}>
+            <input 
+              type="text" 
+              placeholder="Buscar" 
+              style={{ 
+                background: 'transparent', 
+                border: 'none', 
+                color: '#fff', 
+                fontSize: '0.75rem', 
+                width: '100%',
+                outline: 'none'
+              }} 
+            />
+            <Search size={16} color="#666" />
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+          <User size={20} cursor="pointer" color="#fff" />
           <div onClick={() => navigate('/purchase')} style={{ position: 'relative', cursor: 'pointer' }}>
-            <ShoppingBag size={20} />
+            <ShoppingBag size={20} color="#fff" />
             {count > 0 && (
               <span style={{
                 position: 'absolute',
