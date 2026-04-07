@@ -23,7 +23,7 @@ const Navbar = () => {
         alignItems: 'center'
       }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src="/LOGO.png" alt="INJEX" style={{ height: '40px', width: 'auto', display: 'block' }} />
+          <img src={`${import.meta.env.BASE_URL}LOGO.png`} alt="INJEX" style={{ height: '40px', width: 'auto', display: 'block' }} />
         </Link>
 
         <ul style={{
