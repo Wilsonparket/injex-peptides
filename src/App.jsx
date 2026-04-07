@@ -20,7 +20,7 @@ const HomePage = () => (
 
 function App() {
   return (
-    <Router basename="/injex">
+    <Router basename="/injex-peptides">
       <ScrollToTop />
       <div className="app">
         <Navbar />
