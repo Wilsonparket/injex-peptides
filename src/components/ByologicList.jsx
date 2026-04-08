@@ -26,7 +26,7 @@ const products = Object.entries(imageModules).map(([path, src], i) => {
   return {
     id: i + 1,
     name,
-    description: meta.description || 'Produto BYOLOGIC para pesquisa',
+    description: meta.description || 'Produto BYOLOGIK para pesquisa',
     price,
     img: src,
   };
@@ -137,7 +137,7 @@ const ByologicList = () => {
           borderRadius: '6px',
         }}>
           <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.53rem', color: '#ffffff' }}>
-            BYOLOGIC
+            BYOLOGIK
           </h2>
           <div style={{
             display: 'grid',

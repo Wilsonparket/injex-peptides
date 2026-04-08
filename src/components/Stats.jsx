@@ -4,13 +4,10 @@ import { motion } from 'framer-motion';
 
 const Stats = () => {
   return (
-    <section id="sobre-nos" style={{ padding: '100px 0 60px', backgroundColor: '#050505', scrollMarginTop: '100px' }}>
+    <section id="sobre-nos" style={{ padding: '40px 0 60px', backgroundColor: '#050505', scrollMarginTop: '100px' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 className="section-title" style={{ fontSize: '200%' }}>Peptídeos para pesquisa e <span className="text-neon">desenvolvimento científico</span></h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-            Na INJEX, estamos redefinindo o futuro dos peptídeos. Como uma organização orientada pela ciência, nossa missão é desbloquear o potencial da tecnologia avançada de peptídeos e transformá-la em soluções práticas. Fundamentados em pesquisa rigorosa e impulsionados pela inovação, preenchemos a lacuna entre a biotecnologia de ponta e as aplicações práticas.
-          </p>
+          <h2 className="section-title" style={{ fontSize: '180%', fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Peptídeos para pesquisa e desenvolvimento científico</h2>
         </div>
 
         <div style={{

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductList from './components/ProductList';
+import Stats from './components/Stats';
 import ByologicList from './components/ByologicList';
 import NeopeptidesList from './components/NeopeptidesList';
 import Footer from './components/Footer';
@@ -14,6 +15,7 @@ import ScrollToTop from './components/ScrollToTop';
 const HomePage = () => (
   <>
     <Hero />
+    <Stats />
     <ProductList />
     <ByologicList />
     <NeopeptidesList />

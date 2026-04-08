@@ -93,8 +93,8 @@ const Hero = () => {
             objectFit: 'contain',
             objectPosition: 'right center',
             display: 'block',
-            transform: 'scale(1.3)',
-            transformOrigin: 'right center'
+            transformOrigin: 'right center',
+            animation: 'heroZoom 2s ease-out forwards'
           }}
         />
       </div>
@@ -126,8 +126,8 @@ const Hero = () => {
             BIO-PERFORMANCE
           </h1>
           
-          <Link
-            to="/purchase"
+          <a
+            href="#byologic"
             className="btn-primary"
             style={{ 
               display: 'inline-block', 
@@ -140,7 +140,7 @@ const Hero = () => {
             }}
           >
             EXPLORE PRODUTOS
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

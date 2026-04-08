@@ -17,13 +17,7 @@ const Footer = () => {
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <span style={{ 
-                fontFamily: 'var(--font-heading)', 
-                fontWeight: 900, 
-                fontSize: '1.5rem',
-                letterSpacing: '-1px',
-                textTransform: 'uppercase'
-              }}>INJ<span className="text-neon">EX</span></span>
+              <img src={`${import.meta.env.BASE_URL}LOGO.png`} alt="INJEX" style={{ height: '56px', width: 'auto', display: 'block' }} />
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6 }}>
               Levando a ciência dos peptídeos adiante por meio de pesquisa rigorosa e inovação contínua.
