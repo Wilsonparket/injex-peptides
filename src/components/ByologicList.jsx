@@ -4,24 +4,19 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
-// Auto-load all images from src/assets/produtos
-const imageModules = import.meta.glob('../assets/produtos/*.{png,jpg,jpeg,webp}', {
+// Auto-load all images from src/assets/byologic
+const imageModules = import.meta.glob('../assets/byologic/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 });
 
-// Optional metadata per file (price/description). Defaults applied otherwise.
 const productMeta = {
-  'BPC-157': { price: 'R$259,00', description: 'Peptídeo de pesquisa para regeneração tecidual' },
-  'GHK-Cu': { price: 'R$359,00', description: 'Tripeptídeo cobre para estudos de pele' },
-  'KLOW 80 mg': { price: 'R$194,80', description: 'Blend exclusivo para pesquisa' },
-  'MOTS-c': { price: 'R$299,00', description: 'Peptídeo mitocondrial para pesquisa metabólica' },
-  'TESAMORELIN': { price: 'R$259,00', description: 'Análogo do GHRH para pesquisa' },
+  // Add per-file metadata here, e.g.:
+  // 'NomeDoArquivo': { price: 'R$199,90', description: '...' },
 };
 
 const products = Object.entries(imageModules).map(([path, src], i) => {
   const filename = path.split('/').pop().replace(/\.[^.]+$/, '');
-  // Parse "Nome+199,90" → name "Nome", price "R$199,90"
   const [rawName, rawPrice] = filename.split('+');
   const name = rawName.trim();
   const meta = productMeta[name] || {};
@@ -31,7 +26,7 @@ const products = Object.entries(imageModules).map(([path, src], i) => {
   return {
     id: i + 1,
     name,
-    description: meta.description || 'Peptídeo para pesquisa científica',
+    description: meta.description || 'Produto BYOLOGIC para pesquisa',
     price,
     img: src,
   };
@@ -47,11 +42,11 @@ const ProductCard = ({ product }) => {
   return (
     <React.Fragment>
       <motion.div
-        whileHover={{ y: -4, borderColor: 'var(--neon)' }}
+        whileHover={{ y: -4, boxShadow: '0 0 0 1px #96e348, 0 0 25px rgba(150, 227, 72, 0.45)' }}
         onClick={() => setZoom(true)}
         style={{
           backgroundColor: '#0a0a0a',
-          border: '1px solid #2a2a2a',
+          border: 'none',
           borderRadius: '4px',
           padding: '1rem',
           display: 'flex',
@@ -115,7 +110,7 @@ const ProductCard = ({ product }) => {
             display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, cursor: 'zoom-out'
           }}
         >
-          <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', width: '500px', height: '500px', backgroundColor: 'var(--surface)', padding: '1rem' }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', width: '500px', height: '500px', backgroundColor: '#fff', padding: '1rem' }}>
             <button
               type="button"
               onClick={closeZoom}
@@ -132,17 +127,17 @@ const ProductCard = ({ product }) => {
   );
 };
 
-const ProductList = () => {
+const ByologicList = () => {
   return (
-    <section id="peptideos" style={{ padding: '0 0 100px', scrollMarginTop: '100px' }}>
+    <section id="byologic" style={{ padding: '60px 0', scrollMarginTop: '100px' }}>
       <div className="container">
         <div style={{
           background: 'linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%)',
           padding: '1.5rem',
           borderRadius: '6px',
         }}>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.53rem' }}>
-            PRODUTOS EM DESTAQUE
+          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.53rem', color: '#ffffff' }}>
+            BYOLOGIC
           </h2>
           <div style={{
             display: 'grid',
@@ -157,4 +152,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ByologicList;

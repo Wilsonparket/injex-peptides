@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom';
 
 const BASE = import.meta.env.BASE_URL;
 
+// Auto-load all banner images from src/assets/banners
+const bannerModules = import.meta.glob('../assets/banners/*.{png,jpg,jpeg,webp}', {
+  eager: true,
+  import: 'default',
+});
+const banners = Object.entries(bannerModules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, src]) => src);
+
 const slides = [
   {
     id: 1,
@@ -13,7 +22,7 @@ const slides = [
     titleNeon: 'menos gordura',
     titlePost: '',
     description: 'Ative seu corpo para queimar gordura com Tesamorelina',
-    image: `${BASE}Banner 1.png`,
+    image: `${BASE}Foto banner 1.png`,
     bg: 'linear-gradient(135deg, #0a0a0a 0%, #1a2410 100%)',
   },
   {
@@ -41,8 +50,22 @@ const slides = [
 const AUTOPLAY_MS = 6000;
 
 const Hero = () => {
+  const [opacity, setOpacity] = useState(1);
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const fadeStart = 50;
+      const fadeEnd = 500;
+      const op = Math.max(0, Math.min(1, 1 - (y - fadeStart) / (fadeEnd - fadeStart)));
+      setOpacity(op);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <section style={{
+      opacity,
+      transition: 'opacity 0.1s linear',
       position: 'relative',
       width: '100%',
       height: '80vh',
@@ -52,30 +75,28 @@ const Hero = () => {
       display: 'flex',
       alignItems: 'center'
     }}>
-      {/* Background Image */}
+      {/* Right-side Image */}
       <div style={{
         position: 'absolute',
-        inset: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        width: '55%',
         zIndex: 1
       }}>
         <img
-          src={`${import.meta.env.BASE_URL}Banner 1.png`}
+          src={banners[0] || `${import.meta.env.BASE_URL}Foto banner 1.png`}
           alt="Hero Banner"
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            display: 'block'
+            objectFit: 'contain',
+            objectPosition: 'right center',
+            display: 'block',
+            transform: 'scale(1.3)',
+            transformOrigin: 'right center'
           }}
         />
-        {/* Overlay for better text readability if needed */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)',
-          zIndex: 2
-        }} />
       </div>
 
       <div className="container" style={{
@@ -92,9 +113,9 @@ const Hero = () => {
           style={{ maxWidth: '600px' }}
         >
           <h1 style={{
-            fontFamily: "'Archivo Black', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            fontWeight: 900,
+            fontWeight: 600,
             lineHeight: 1,
             color: '#fff',
             textTransform: 'uppercase',

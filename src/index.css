@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;600;800;900&family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;600;800;900&family=Archivo+Black&family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap');
 
 :root {
   --neon: #96e348;
@@ -8,7 +8,7 @@
   --text: #ffffff;
   --text-muted: #888888;
   --font-main: 'Inter', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-heading: 'Inter', sans-serif;
   --container-width: 1200px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -27,6 +27,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-main);
+  font-weight: 800;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
