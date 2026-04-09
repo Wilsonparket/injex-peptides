@@ -94,7 +94,7 @@ const Hero = () => {
             objectPosition: 'right center',
             display: 'block',
             transformOrigin: 'right center',
-            animation: 'heroZoom 2s ease-out forwards'
+            transform: 'scale(0.9)'
           }}
         />
       </div>
@@ -110,11 +110,11 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          style={{ maxWidth: '600px' }}
+          style={{ maxWidth: '700px' }}
         >
           <h1 style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+            fontSize: 'clamp(1.82rem, 4.37vw, 3.28rem)',
             fontWeight: 600,
             lineHeight: 1,
             color: '#fff',
@@ -123,7 +123,7 @@ const Hero = () => {
             letterSpacing: '-0.02em'
           }}>
             GLOBAL<br />
-            BIO-PERFORMANCE
+            <span style={{ whiteSpace: 'nowrap' }}>BIO-PERFORMANCE</span>
           </h1>
           
           <a

@@ -25,10 +25,10 @@ const Stats = () => {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Dna size={32} className="text-neon" />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Nossa empresa:</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, opacity: 0.5, textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>Nossa empresa:</span>
             </div>
             <div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>A mais alta qualidade em <span className="text-neon">Peptídeos</span></div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>A mais alta qualidade em <span className="text-neon">Peptídeos</span></div>
             </div>
           </div>
           <div style={{
@@ -41,10 +41,10 @@ const Stats = () => {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Truck size={32} className="text-neon" />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Entrega</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, opacity: 0.5, textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>Entrega</span>
             </div>
             <div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Entrega rápida para todo o <span className="text-neon">Brasil</span></div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>Entrega rápida para todo o <span className="text-neon">Brasil</span></div>
             </div>
           </div>
           <div style={{
@@ -57,10 +57,10 @@ const Stats = () => {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Zap size={32} className="text-neon" />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Padrão Premium</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, opacity: 0.5, textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>Padrão Premium</span>
             </div>
             <div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Matéria-prima de <span className="text-neon">alta pureza</span></div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>Matéria-prima de <span className="text-neon">alta pureza</span></div>
             </div>
           </div>
           <div style={{
@@ -73,10 +73,10 @@ const Stats = () => {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <ShieldCheck size={32} className="text-neon" />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, opacity: 0.5, textTransform: 'uppercase' }}>Segurança Garantida</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, opacity: 0.5, textTransform: 'uppercase', fontFamily: "'Inter', sans-serif" }}>Segurança Garantida</span>
             </div>
             <div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 900 }}>Processos rigorosos de <span className="text-neon">qualidade</span></div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>Processos rigorosos de <span className="text-neon">qualidade</span></div>
             </div>
           </div>
         </div>
