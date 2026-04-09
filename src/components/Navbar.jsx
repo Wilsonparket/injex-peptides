@@ -49,6 +49,7 @@ const Navbar = () => {
             <li><a href="#injetaveis" style={{ color: '#fff', textDecoration: 'none' }}>Injetáveis</a></li>
             <li><a href="#peptideos" style={{ color: '#fff', textDecoration: 'none' }}>Peptídeos</a></li>
             <li><a href="#sobre" style={{ color: '#fff', textDecoration: 'none' }}>Sobre</a></li>
+            <li><Link to="/blog" style={{ color: '#fff', textDecoration: 'none' }}>Blog</Link></li>
             <li><Link to="/fale-conosco" style={{ color: '#fff', textDecoration: 'none' }}>Contato</Link></li>
           </ul>
 

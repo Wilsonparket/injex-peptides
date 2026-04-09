@@ -18,8 +18,8 @@ const ByologicList = () => {
           padding: '1.5rem',
           borderRadius: '6px',
         }}>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '1.53rem', color: '#ffffff' }}>
-            BYOLOGIK
+          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.53rem', color: '#ffffff', textTransform: 'none' }}>
+            Byologik
           </h2>
           <div style={{
             display: 'grid',

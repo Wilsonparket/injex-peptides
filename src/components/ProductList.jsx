@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import { buildProducts } from '../utils/productParser';
 
-const imageModules = import.meta.glob('../assets/produtos/*.{png,jpg,jpeg,webp}', {
+const imageModules = import.meta.glob('../assets/produtos em destaque/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 });
@@ -18,8 +18,8 @@ const ProductList = () => {
           padding: '1.5rem',
           borderRadius: '6px',
         }}>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: '1.53rem' }}>
-            PRODUTOS EM DESTAQUE
+          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.377rem', textTransform: 'none' }}>
+            Produtos Em Destaque
           </h2>
           <div style={{
             display: 'grid',

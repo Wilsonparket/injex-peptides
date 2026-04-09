@@ -49,8 +49,13 @@ const slides = [
 
 const AUTOPLAY_MS = 6000;
 
+const SLIDE_INTERVAL = 5000;
+
 const Hero = () => {
   const [opacity, setOpacity] = useState(1);
+  const [index, setIndex] = useState(0);
+  const total = banners.length || 1;
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -62,6 +67,12 @@ const Hero = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (banners.length <= 1) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % total), SLIDE_INTERVAL);
+    return () => clearInterval(id);
+  }, [total]);
   return (
     <section style={{
       opacity,
@@ -75,73 +86,63 @@ const Hero = () => {
       display: 'flex',
       alignItems: 'center'
     }}>
-      {/* Right-side Image */}
-      <div style={{
-        position: 'absolute',
-        right: 0,
-        top: 0,
-        bottom: 0,
-        width: '55%',
-        zIndex: 1
-      }}>
-        <img
-          src={banners[0] || `${import.meta.env.BASE_URL}Foto banner 1.png`}
-          alt="Hero Banner"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            objectPosition: 'right center',
-            display: 'block',
-            transformOrigin: 'right center',
-            transform: 'scale(0.9)'
-          }}
-        />
+      {/* Full Background Carousel */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        {banners.length > 0 ? banners.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`Hero Banner ${i + 1}`}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              opacity: i === index ? 1 : 0,
+              transition: 'opacity 1s ease-in-out',
+            }}
+          />
+        )) : (
+          <img
+            src={`${import.meta.env.BASE_URL}Foto banner 1.png`}
+            alt="Hero Banner"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+          />
+        )}
       </div>
 
-      <div className="container" style={{
-        position: 'relative',
+      <div style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: '12%',
         zIndex: 3,
-        width: '100%',
-        paddingLeft: '5%',
-        paddingRight: '5%'
+        display: 'flex',
+        justifyContent: 'center',
       }}>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          style={{ maxWidth: '700px' }}
-        >
-          <h1 style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 'clamp(1.82rem, 4.37vw, 3.28rem)',
-            fontWeight: 600,
-            lineHeight: 1,
+        <a
+          href="#peptideos"
+          style={{
+            padding: '0.95rem 2.25rem',
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
             color: '#fff',
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 800,
+            fontSize: '0.9rem',
             textTransform: 'uppercase',
-            marginBottom: '2rem',
-            letterSpacing: '-0.02em'
-          }}>
-            GLOBAL<br />
-            <span style={{ whiteSpace: 'nowrap' }}>BIO-PERFORMANCE</span>
-          </h1>
-          
-          <a
-            href="#byologic"
-            className="btn-primary"
-            style={{ 
-              display: 'inline-block', 
-              padding: '0.8rem 2rem', 
-              fontSize: '0.9rem',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              borderRadius: '4px'
-            }}
-          >
-            EXPLORE PRODUTOS
-          </a>
-        </motion.div>
+            letterSpacing: '0.08em',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
+          }}
+        >
+          EXPLORAR PRODUTOS
+        </a>
       </div>
     </section>
   );

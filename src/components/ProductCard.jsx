@@ -111,7 +111,7 @@ const ProductCard = ({ product, variant = 'dark' }) => {
             border: 'none',
             fontWeight: 900,
             fontSize: '0.65rem',
-            borderRadius: '2px',
+            borderRadius: '8px',
             cursor: 'pointer',
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
