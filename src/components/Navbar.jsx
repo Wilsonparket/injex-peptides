@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Zap } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -6,16 +6,24 @@ import { useCart } from '../context/CartContext';
 const Navbar = () => {
   const { count } = useCart();
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <nav style={{
       position: 'fixed',
       top: 0,
       width: '100%',
       zIndex: 1000,
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0.4)',
       backdropFilter: 'blur(10px)',
-      borderBottom: '1px solid #1a1a1a',
-      padding: '1rem 0'
+      borderBottom: scrolled ? '1px solid #1a1a1a' : '1px solid transparent',
+      boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.5)' : 'none',
+      padding: '1rem 0',
+      transition: 'all 0.3s ease',
     }}>
       <div className="container" style={{
         display: 'flex',

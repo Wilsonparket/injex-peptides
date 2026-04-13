@@ -3,7 +3,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 
-const ProductCard = ({ product, variant = 'dark' }) => {
+const ProductCard = ({ product, variant = 'dark', sectionLabel = '' }) => {
   const { addItem } = useCart();
   const [zoom, setZoom] = useState(false);
   const [slide, setSlide] = useState(0);
@@ -11,9 +11,12 @@ const ProductCard = ({ product, variant = 'dark' }) => {
   const total = images.length;
   const current = images[slide];
 
+  const [added, setAdded] = useState(false);
   const addToCart = (e) => {
     e.stopPropagation();
     addItem({ ...product, img: current });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
   };
   const prev = (e) => { e.stopPropagation(); setSlide((s) => (s - 1 + total) % total); };
   const next = (e) => { e.stopPropagation(); setSlide((s) => (s + 1) % total); };
@@ -24,6 +27,7 @@ const ProductCard = ({ product, variant = 'dark' }) => {
   return (
     <React.Fragment>
       <motion.div
+        id={sectionLabel ? `product-${sectionLabel}-${product.id}` : undefined}
         whileHover={{ y: -4, boxShadow: '0 0 0 1px #96e348, 0 0 25px rgba(150, 227, 72, 0.45)' }}
         onClick={() => setZoom(true)}
         style={{
@@ -37,6 +41,14 @@ const ProductCard = ({ product, variant = 'dark' }) => {
           overflow: 'hidden',
         }}
       >
+        {product.tag && (
+          <div style={{
+            position: 'absolute', top: '0.75rem', left: '0.75rem', zIndex: 2,
+            backgroundColor: 'var(--neon)', color: 'black',
+            padding: '3px 10px', borderRadius: '4px',
+            fontSize: '0.6rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.05em',
+          }}>{product.tag}</div>
+        )}
         <div style={{
           height: '255px',
           display: 'flex',
@@ -118,7 +130,7 @@ const ProductCard = ({ product, variant = 'dark' }) => {
             marginTop: 'auto',
           }}
         >
-          Adicionar ao carrinho
+          {added ? 'Adicionado ✓' : 'Adicionar ao carrinho'}
         </button>
       </motion.div>
 
@@ -153,7 +165,7 @@ const carouselArrowStyle = (side) => ({
   [side]: '6px',
   transform: 'translateY(-50%)',
   background: 'rgba(0,0,0,0.6)',
-  color: 'var(--neon)',
+  color: '#fff',
   border: 'none',
   width: '28px',
   height: '28px',

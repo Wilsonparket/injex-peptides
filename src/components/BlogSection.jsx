@@ -72,7 +72,12 @@ const BlogSection = () => {
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 0 1px var(--neon), 0 0 25px rgba(150,227,72,0.35)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
             >
-              <img src={post.image} alt={post.title} style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
+              <div style={{ overflow: 'hidden', height: '180px' }}>
+                <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+              </div>
               <div style={{ padding: '1.25rem' }}>
                 <h3 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: '1rem', color: '#fff', marginBottom: '0.5rem', textTransform: 'none', lineHeight: 1.3 }}>
                   {post.title}

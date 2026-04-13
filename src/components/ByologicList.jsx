@@ -11,22 +11,19 @@ const products = buildProducts(imageModules, 'Produto BYOLOGIK para pesquisa');
 
 const ByologicList = () => {
   return (
-    <section id="byologic" style={{ padding: '60px 0', scrollMarginTop: '100px' }}>
+    <section id="byologic" style={{ padding: '20px 0', scrollMarginTop: '100px' }}>
       <div className="container">
-        <div style={{
-          background: 'linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%)',
-          padding: '1.5rem',
-          borderRadius: '6px',
-        }}>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.53rem', color: '#ffffff', textTransform: 'none' }}>
+        <div>
+          <h2 className="section-title" style={{ marginBottom: '0.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.5rem', color: '#ffffff', textTransform: 'none' }}>
             Byologik
           </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Linha premium de compostos para laboratórios</p>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem'
           }}>
-            {products.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p} sectionLabel="Byologik" />)}
           </div>
         </div>
       </div>

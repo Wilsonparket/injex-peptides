@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductList from './components/ProductList';
 import Stats from './components/Stats';
-import CategoryBanners from './components/CategoryBanners';
 import ByologicList from './components/ByologicList';
 import NeopeptidesList from './components/NeopeptidesList';
 import Footer from './components/Footer';
@@ -14,15 +13,21 @@ import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import BlogSection from './components/BlogSection';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import ProductSidebar from './components/ProductSidebar';
 
 const HomePage = () => (
   <>
     <Hero />
-    <CategoryBanners />
     <Stats />
-    <ProductList />
-    <ByologicList />
-    <NeopeptidesList />
+    <div style={{ background: 'linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%)', borderRadius: '12px', margin: '0 auto', maxWidth: 'var(--container-width)', padding: '1.5rem', display: 'flex', gap: '1rem' }}>
+      <ProductSidebar />
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <ProductList />
+        <ByologicList />
+        <NeopeptidesList />
+      </div>
+    </div>
     <BlogSection />
   </>
 );
@@ -41,6 +46,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
         </Routes>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   );

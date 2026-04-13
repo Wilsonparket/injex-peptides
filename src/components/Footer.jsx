@@ -6,8 +6,10 @@ const Footer = () => {
     <footer style={{
       backgroundColor: 'black',
       padding: '80px 0 40px',
-      borderTop: '1px solid #111'
+      borderTop: 'none',
+      position: 'relative',
     }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(150,227,72,0.3), transparent)' }} />
       <div className="container">
         <div style={{
           display: 'grid',
@@ -78,10 +80,12 @@ const Footer = () => {
         }}>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>© 2026 INJEX INC. TODOS OS DIREITOS RESERVADOS</p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <Camera size={18} cursor="pointer" />
-            <MessageCircle size={18} cursor="pointer" />
-            <Globe size={18} cursor="pointer" />
-            <Play size={18} cursor="pointer" />
+            {[Camera, MessageCircle, Globe, Play].map((Icon, i) => (
+              <Icon key={i} size={18} style={{ cursor: 'pointer', transition: 'color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--neon)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = ''; }}
+              />
+            ))}
           </div>
         </div>
       </div>

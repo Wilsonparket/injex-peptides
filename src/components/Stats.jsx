@@ -76,8 +76,11 @@ const Stats = () => {
                   gap: '12px',
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'border-color 0.2s',
+                  transition: 'all 0.3s ease',
+                  cursor: 'default',
                 }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 0 0 1px #7AE234, 0 0 20px rgba(122,226,52,0.3)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <div style={{

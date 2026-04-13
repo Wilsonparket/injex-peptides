@@ -144,6 +144,52 @@ const Hero = () => {
           EXPLORAR PRODUTOS
         </a>
       </div>
+
+      {/* Arrows */}
+      {banners.length > 1 && (
+        <>
+          <button
+            onClick={() => setIndex((i) => (i - 1 + total) % total)}
+            aria-label="Anterior"
+            style={{
+              position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 4,
+              width: '42px', height: '42px', borderRadius: '50%',
+              background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.2)', color: '#fff', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          ><ChevronLeft size={20} /></button>
+          <button
+            onClick={() => setIndex((i) => (i + 1) % total)}
+            aria-label="Próximo"
+            style={{
+              position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', zIndex: 4,
+              width: '42px', height: '42px', borderRadius: '50%',
+              background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.2)', color: '#fff', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          ><ChevronRight size={20} /></button>
+        </>
+      )}
+
+      {/* Dots */}
+      {banners.length > 1 && (
+        <div style={{ position: 'absolute', bottom: '4%', left: 0, right: 0, zIndex: 4, display: 'flex', justifyContent: 'center', gap: '8px' }}>
+          {banners.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Slide ${i + 1}`}
+              style={{
+                width: i === index ? '24px' : '8px', height: '8px', borderRadius: '4px',
+                backgroundColor: i === index ? 'var(--neon)' : 'rgba(255,255,255,0.4)',
+                border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0,
+              }}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

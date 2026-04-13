@@ -11,22 +11,19 @@ const products = buildProducts(imageModules, 'Peptídeo para pesquisa científic
 
 const ProductList = () => {
   return (
-    <section id="peptideos" style={{ padding: '0 0 100px', scrollMarginTop: '100px' }}>
+    <section id="peptideos" style={{ padding: '0 0 20px', scrollMarginTop: '100px' }}>
       <div className="container">
-        <div style={{
-          background: 'linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%)',
-          padding: '1.5rem',
-          borderRadius: '6px',
-        }}>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.377rem', textTransform: 'none' }}>
+        <div>
+          <h2 className="section-title" style={{ marginBottom: '0.5rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: '1.5rem', textTransform: 'none' }}>
             Produtos Em Destaque
           </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Peptídeos mais procurados para pesquisa científica</p>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem'
           }}>
-            {products.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p} sectionLabel="Destaque" />)}
           </div>
         </div>
       </div>

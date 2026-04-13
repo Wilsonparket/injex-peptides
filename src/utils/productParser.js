@@ -12,8 +12,13 @@ export function buildProducts(imageModules, defaultDescription = 'Produto para p
   Object.entries(imageModules).forEach(([path, src]) => {
     const filename = path.split('/').pop().replace(/\.[^.]+$/, '');
 
+    // Extract optional badge tag [Novo], [Destaque] etc
+    const tagMatch = filename.match(/\[([^\]]+)\]/);
+    const tag = tagMatch ? tagMatch[1].trim() : null;
+    const fileWithoutTag = filename.replace(/\s*\[[^\]]+\]\s*/, '');
+
     // Split off price if present ("name+price")
-    const [namePart, rawPrice] = filename.split('+');
+    const [namePart, rawPrice] = fileWithoutTag.split('+');
     const price = rawPrice
       ? `R$${rawPrice.trim().replace('.', ',')}`
       : null;
@@ -34,6 +39,7 @@ export function buildProducts(imageModules, defaultDescription = 'Produto para p
         order,
         name,
         price,
+        tag,
         description: defaultDescription,
         slots: [],
       });
@@ -41,6 +47,7 @@ export function buildProducts(imageModules, defaultDescription = 'Produto para p
     const g = groups.get(key);
     g.slots.push({ slot, src });
     if (price && !g.price) g.price = price;
+    if (tag && !g.tag) g.tag = tag;
   });
 
   return Array.from(groups.values())
@@ -52,6 +59,7 @@ export function buildProducts(imageModules, defaultDescription = 'Produto para p
         name: g.name,
         description: g.description,
         price: g.price || 'R$199,90',
+        tag: g.tag || null,
         images: g.slots.map((s) => s.src),
       };
     });
