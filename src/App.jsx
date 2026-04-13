@@ -11,6 +11,7 @@ import PurchasePage from './pages/PurchasePage';
 import PaymentDeliveryPage from './pages/PaymentDeliveryPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import ProductPage from './pages/ProductPage';
 import BlogSection from './components/BlogSection';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
@@ -44,6 +45,7 @@ function App() {
           <Route path="/pagamento-e-entrega" element={<PaymentDeliveryPage />} />
           <Route path="/fale-conosco" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/produto/:id" element={<ProductPage />} />
         </Routes>
         <Footer />
         <ScrollToTopButton />

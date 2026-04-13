@@ -18,7 +18,7 @@ const NeopeptidesList = () => {
             Neopeptides
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Nova geração de peptídeos para pesquisa avançada</p>
-          <div style={{
+          <div className="cards-grid-4" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem'

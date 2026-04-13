@@ -18,7 +18,7 @@ const ByologicList = () => {
             Byologik
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '1.5rem' }}>Linha premium de compostos para laboratórios</p>
-          <div style={{
+          <div className="cards-grid-4" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem'

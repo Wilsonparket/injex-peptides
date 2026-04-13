@@ -122,3 +122,31 @@ button {
 .neon-glow-text {
   text-shadow: 0 0 10px rgba(150, 227, 72, 0.5);
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+
+  .desktop-only { display: none !important; }
+  .mobile-only { display: flex !important; }
+
+  .cards-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .cards-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-page-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only { display: none !important; }
+}

@@ -21,7 +21,7 @@ const ProductSidebar = () => {
   };
 
   return (
-    <div style={{
+    <div className="desktop-only" style={{
       width: '180px',
       flexShrink: 0,
       position: 'sticky',

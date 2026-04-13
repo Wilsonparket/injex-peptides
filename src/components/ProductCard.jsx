@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 const ProductCard = ({ product, variant = 'dark', sectionLabel = '' }) => {
   const { addItem } = useCart();
+  const navigate = useNavigate();
   const [zoom, setZoom] = useState(false);
   const [slide, setSlide] = useState(0);
   const images = product.images || [product.img];
@@ -29,7 +31,7 @@ const ProductCard = ({ product, variant = 'dark', sectionLabel = '' }) => {
       <motion.div
         id={sectionLabel ? `product-${sectionLabel}-${product.id}` : undefined}
         whileHover={{ y: -4, boxShadow: '0 0 0 1px #96e348, 0 0 25px rgba(150, 227, 72, 0.45)' }}
-        onClick={() => setZoom(true)}
+        onClick={() => navigate(`/produto/${product.id}`, { state: { product } })}
         style={{
           backgroundColor: isLight ? '#ffffff' : '#0a0a0a',
           border: isLight ? '1px solid #e5e5e5' : 'none',
@@ -37,7 +39,7 @@ const ProductCard = ({ product, variant = 'dark', sectionLabel = '' }) => {
           padding: '1rem',
           display: 'flex',
           flexDirection: 'column',
-          cursor: 'zoom-in',
+          cursor: 'pointer',
           overflow: 'hidden',
         }}
       >

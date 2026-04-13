@@ -6,6 +6,8 @@
 // Grouping: products with the same (order + name) are grouped as one card
 // and their images become a carousel, ordered by the slot letter (A, B, C...).
 
+import descriptions from './productDescriptions';
+
 export function buildProducts(imageModules, defaultDescription = 'Produto para pesquisa') {
   const groups = new Map();
 
@@ -57,7 +59,7 @@ export function buildProducts(imageModules, defaultDescription = 'Produto para p
       return {
         id: i + 1,
         name: g.name,
-        description: g.description,
+        description: descriptions[g.name] || g.description,
         price: g.price || 'R$199,90',
         tag: g.tag || null,
         images: g.slots.map((s) => s.src),

@@ -171,7 +171,7 @@ const PurchasePage = () => {
           <ChevronLeft size={20} /> VOLTAR À LOJA
         </Link>
 
-        <div style={{
+        <div className="checkout-grid" style={{
           display: 'grid',
           gridTemplateColumns: '1fr 400px',
           gap: '4rem'
