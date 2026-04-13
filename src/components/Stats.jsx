@@ -57,7 +57,7 @@ const Stats = () => {
           }}>
             Peptídeos para pesquisa e desenvolvimento científico
           </p>
-          <div style={{
+          <div className="cards-grid-4" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
             gap: '12px',

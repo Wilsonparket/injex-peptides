@@ -59,8 +59,53 @@ const Navbar = () => {
             textTransform: 'uppercase',
             letterSpacing: '0.05em'
           }}>
-            <li><a href="#injetaveis" style={{ color: '#fff', textDecoration: 'none' }}>Injetáveis</a></li>
-            <li><a href="#peptideos" style={{ color: '#fff', textDecoration: 'none' }}>Peptídeos</a></li>
+            <li style={{ position: 'relative' }}
+              onMouseEnter={(e) => { e.currentTarget.querySelector('.dropdown').style.opacity = '1'; e.currentTarget.querySelector('.dropdown').style.pointerEvents = 'auto'; e.currentTarget.querySelector('.dropdown').style.transform = 'translateX(-50%) translateY(0)'; }}
+              onMouseLeave={(e) => { e.currentTarget.querySelector('.dropdown').style.opacity = '0'; e.currentTarget.querySelector('.dropdown').style.pointerEvents = 'none'; e.currentTarget.querySelector('.dropdown').style.transform = 'translateX(-50%) translateY(8px)'; }}
+            >
+              <span style={{ color: '#fff', cursor: 'pointer' }}>Objetivos</span>
+              <div className="dropdown" style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%) translateY(0)',
+                marginTop: '0',
+                paddingTop: '0.75rem',
+                backgroundColor: '#0a0a0a',
+                border: '1px solid #1a1a1a',
+                borderRadius: '8px',
+                padding: '0.75rem 0',
+                minWidth: '180px',
+                opacity: 0,
+                pointerEvents: 'none',
+                transition: 'all 0.2s ease',
+                zIndex: 100,
+                boxShadow: '0 8px 30px rgba(0,0,0,0.5)',
+              }}>
+                {[
+                  { label: 'Emagrecimento', slug: 'emagrecimento' },
+                  { label: 'Massa muscular', slug: 'massa-muscular' },
+                  { label: 'Beleza', slug: 'beleza' },
+                ].map(({ label, slug }) => (
+                  <Link
+                    key={slug}
+                    to={`/objetivo/${slug}`}
+                    style={{
+                      display: 'block',
+                      padding: '0.5rem 1.25rem',
+                      color: '#ccc',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      textTransform: 'none',
+                      textDecoration: 'none',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--neon)'; e.currentTarget.style.backgroundColor = '#111'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#ccc'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                  >{label}</Link>
+                ))}
+              </div>
+            </li>
             <li><a href="#sobre" style={{ color: '#fff', textDecoration: 'none' }}>Sobre</a></li>
             <li><Link to="/blog" style={{ color: '#fff', textDecoration: 'none' }}>Blog</Link></li>
             <li><Link to="/fale-conosco" style={{ color: '#fff', textDecoration: 'none' }}>Contato</Link></li>
@@ -77,7 +122,7 @@ const Navbar = () => {
           }}>
             <input
               type="text"
-              placeholder="Buscar"
+              placeholder="Busque seu peptídeo ideal..."
               style={{
                 background: 'transparent',
                 border: 'none',
@@ -127,8 +172,10 @@ const Navbar = () => {
             gap: '1.25rem',
             borderBottom: '1px solid #1a1a1a',
           }}>
-            <a href="#injetaveis" onClick={() => setMenuOpen(false)} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Injetáveis</a>
-            <a href="#peptideos" onClick={() => setMenuOpen(false)} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Peptídeos</a>
+            <span style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Objetivos</span>
+            <Link to="/objetivo/emagrecimento" onClick={() => setMenuOpen(false)} style={{ color: 'var(--neon)', fontSize: '0.8rem', fontWeight: 600, paddingLeft: '1rem' }}>Emagrecimento</Link>
+            <Link to="/objetivo/massa-muscular" onClick={() => setMenuOpen(false)} style={{ color: 'var(--neon)', fontSize: '0.8rem', fontWeight: 600, paddingLeft: '1rem' }}>Massa muscular</Link>
+            <Link to="/objetivo/beleza" onClick={() => setMenuOpen(false)} style={{ color: 'var(--neon)', fontSize: '0.8rem', fontWeight: 600, paddingLeft: '1rem' }}>Beleza</Link>
             <a href="#sobre" onClick={() => setMenuOpen(false)} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Sobre</a>
             <Link to="/blog" onClick={() => setMenuOpen(false)} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Blog</Link>
             <Link to="/fale-conosco" onClick={() => setMenuOpen(false)} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>Contato</Link>

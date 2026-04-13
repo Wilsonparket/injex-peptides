@@ -145,6 +145,16 @@ button {
   .checkout-grid {
     grid-template-columns: 1fr !important;
   }
+
+  .products-wrapper {
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (min-width: 769px) {

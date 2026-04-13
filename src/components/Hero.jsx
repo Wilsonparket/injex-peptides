@@ -53,8 +53,15 @@ const SLIDE_INTERVAL = 5000;
 
 const Hero = () => {
   const [opacity, setOpacity] = useState(1);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  const visibleBanners = isMobile ? banners.filter((_, i) => i !== 1) : banners;
   const [index, setIndex] = useState(0);
-  const total = banners.length || 1;
+  const total = visibleBanners.length || 1;
 
   useEffect(() => {
     const onScroll = () => {
@@ -88,7 +95,7 @@ const Hero = () => {
     }}>
       {/* Full Background Carousel */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-        {banners.length > 0 ? banners.map((src, i) => (
+        {visibleBanners.length > 0 ? visibleBanners.map((src, i) => (
           <img
             key={src}
             src={src}
@@ -146,7 +153,7 @@ const Hero = () => {
       </div>
 
       {/* Arrows */}
-      {banners.length > 1 && (
+      {visibleBanners.length > 1 && (
         <>
           <button
             onClick={() => setIndex((i) => (i - 1 + total) % total)}
@@ -174,9 +181,9 @@ const Hero = () => {
       )}
 
       {/* Dots */}
-      {banners.length > 1 && (
+      {visibleBanners.length > 1 && (
         <div style={{ position: 'absolute', bottom: '4%', left: 0, right: 0, zIndex: 4, display: 'flex', justifyContent: 'center', gap: '8px' }}>
-          {banners.map((_, i) => (
+          {visibleBanners.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
